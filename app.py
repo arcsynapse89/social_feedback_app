@@ -28,8 +28,11 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from streamlit.components.v1 import html
 
-SAVE_DIR = os.path.abspath("recordings")
-os.makedirs(SAVE_DIR, exist_ok=True)
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+SAVE_DIR = BASE_DIR / "recordings"
+SAVE_DIR.mkdir(exist_ok=True)
 
 UPLOAD_PORT = 8765
 
